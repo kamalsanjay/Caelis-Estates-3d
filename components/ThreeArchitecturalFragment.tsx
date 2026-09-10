@@ -5,8 +5,11 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, OrbitControls, Environment, ContactShadows } from "@react-three/drei";
 import * as THREE from "three";
 
+const basePath = process.env.NODE_ENV === "production" ? "/Caelis-Estates-3d" : "";
+const modelPath = `${basePath}/Meshy_AI_Cliffside_Sky_Villa_0516212452_texture.glb`;
+
 function Model() {
-  const { scene } = useGLTF("/Meshy_AI_Cliffside_Sky_Villa_0516212452_texture.glb");
+  const { scene } = useGLTF(modelPath);
   const modelRef = useRef<THREE.Group>(null);
 
   // Dynamically compute bounding box and normalize scale to fill the screen majestically!
@@ -149,4 +152,4 @@ export default function ThreeArchitecturalFragment() {
 }
 
 // Preload to speed up component loading times
-useGLTF.preload("/Meshy_AI_Cliffside_Sky_Villa_0516212452_texture.glb");
+useGLTF.preload(process.env.NODE_ENV === "production" ? "/Caelis-Estates-3d/Meshy_AI_Cliffside_Sky_Villa_0516212452_texture.glb" : "/Meshy_AI_Cliffside_Sky_Villa_0516212452_texture.glb");
