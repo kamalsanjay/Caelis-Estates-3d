@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export',
+  basePath: '/Caelis-Estates-3d',
+  assetPrefix: '/Caelis-Estates-3d/',
   images: {
+    unoptimized: true,
     formats: ['image/webp'],
     remotePatterns: [
       {
@@ -20,3 +24,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
